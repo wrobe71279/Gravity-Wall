@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Background
   - Ground
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Background
   - Ground
+  - Checkpoint
   - Player
-  - 
   - 
   - 
   - 
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 138125571
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 4168020119
     locked: 0
   - name: Player
     uniqueID: 3812255719
