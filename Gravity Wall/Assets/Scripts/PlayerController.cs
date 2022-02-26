@@ -5,16 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed;
-    public float jumpForce;
-    private float moveInput;
+    public float speed = 10;
+    public float jumpForce = 20;
+    public float moveInput;
 
     private bool isGrounded;
     public Transform groundCheck;
-    public float checkRadius;
+    public float checkRadius = 0.5f;
     public LayerMask whatIsGround;
     private bool canJump;
     private bool polaritySwitched;
+    private bool facingRight = true;
 
 
 
@@ -65,6 +66,15 @@ public class PlayerController : MonoBehaviour
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
+        if(facingRight == false && moveInput > 0)
+        {
+            ChangeDirection();
+        }
+        else if(facingRight == true && moveInput < 0)
+        {
+            ChangeDirection();
+        }
+
     }
 
     public void Jump()
@@ -88,11 +98,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ChangeDirection()
+    {
+        facingRight = !facingRight;
+        Vector3 temp = transform.localScale;
+        temp.x *= -1;
+        transform.localScale = temp;
+    }
+
     IEnumerator PolaritySwitch()
     {
         Jump();
 
-        yield return new WaitForSecondsRealtime(0.3f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         Swap();
 
