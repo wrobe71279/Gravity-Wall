@@ -12,9 +12,12 @@ public class Timer : MonoBehaviour
     public float currentTime;
 
     //whether or not the timer started?
-    bool timerStarted;
+    private bool timerStarted;
     public Text timerText;
-    void Start()
+
+    //game over canvas
+    public Transform gameOverCanvas;
+    void Awake()
     {
         currentTime = startTime;
         timerText.text = currentTime.ToString();
@@ -34,6 +37,12 @@ public class Timer : MonoBehaviour
             }
 
             timerText.text = currentTime.ToString("f0");
+        }
+
+        if (currentTime == 0)
+        {
+            Time.timeScale = 0;
+            gameOverCanvas.gameObject.SetActive(true);
         }
     }
 }
