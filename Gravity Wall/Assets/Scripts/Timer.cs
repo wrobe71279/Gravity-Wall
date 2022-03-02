@@ -24,6 +24,11 @@ public class Timer : MonoBehaviour
         timerStarted = true;
     }
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     void Update()
     {
         if (timerStarted)

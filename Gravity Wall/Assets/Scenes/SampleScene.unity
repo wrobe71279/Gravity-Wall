@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f212237cb64af744f807db8ada6c692c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 10
+  startTime: 2
   currentTime: 0
   timerText: {fileID: 1154418360}
   gameOverCanvas: {fileID: 1015468271}
@@ -19595,7 +19595,7 @@ PrefabInstance:
       objectReference: {fileID: 1983889261}
     - target: {fileID: 2182186349285723480, guid: 211a1c1d88caedd4b8314667aadb2620, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestatLevel
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2182186349285723480, guid: 211a1c1d88caedd4b8314667aadb2620, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -19770,6 +19770,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1983889261}
+    - target: {fileID: 6683176958720661433, guid: e30695a9f7a818f4aada3826631485ed, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7245908515676976875, guid: e30695a9f7a818f4aada3826631485ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0

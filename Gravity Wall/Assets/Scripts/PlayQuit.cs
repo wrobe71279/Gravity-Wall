@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayQuit : MonoBehaviour
 {
-    public void RestatLevel()
+    public void RestartLevel()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
