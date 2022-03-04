@@ -7,6 +7,7 @@ TagManager:
   - Background
   - Ground
   - Checkpoint
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -50,9 +51,15 @@ TagManager:
   - name: Ground
     uniqueID: 138125571
     locked: 0
+  - name: Obstacle
+    uniqueID: 976190067
+    locked: 0
   - name: Checkpoint
     uniqueID: 4168020119
     locked: 0
   - name: Player
     uniqueID: 3812255719
+    locked: 0
+  - name: UI
+    uniqueID: 4007636739
     locked: 0
