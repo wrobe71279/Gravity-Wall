@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour
     private bool polaritySwitched;
     private bool facingRight = true;
 
-
+    private Animator anim;
+    private enum MovementState { idle, running, jumping, falling}
 
     private Rigidbody2D rb;
 
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         polaritySwitched = false;
     }
 
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             if(polaritySwitched == false)
             {
-                rb.velocity = Vector2.up * jumpForce;
+                rb.velocity = Vector2.up * jumpForce;                
             }
             else
             {
@@ -57,6 +59,8 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(PolaritySwitch());
         }
+
+        AnimationStates();
     }
 
     private void FixedUpdate()
@@ -96,6 +100,7 @@ public class PlayerController : MonoBehaviour
         {
             polaritySwitched = false;
         }
+
     }
 
     public void ChangeDirection()
@@ -115,4 +120,47 @@ public class PlayerController : MonoBehaviour
         Swap();
 
     }
+
+    private void AnimationStates()
+    {
+        //running or idle
+        if (moveInput != 0f)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+
+        //Jumping
+        if (rb.velocity.y > 0.01f)
+        {
+            anim.SetBool("isJumping", true);
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);            
+        }
+
+    }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.CompareTag("Obstacle"))
+    //    {
+    //        anim.SetBool("isDead", true);
+    //    }
+            
+    //}
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Laser"))
+    //    {
+    //        anim.SetBool("isDead", true);
+    //    }
+
+    //}
+
 }
