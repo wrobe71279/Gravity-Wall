@@ -4031,6 +4031,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3999873159335323955, guid: e9df48646ffa4a34f811397a31f17a98, type: 3}
+      propertyPath: timerUI
+      value: 
+      objectReference: {fileID: 444545886}
+    - target: {fileID: 3999873159335323955, guid: e9df48646ffa4a34f811397a31f17a98, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1015468271}
@@ -5254,6 +5258,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3999873159335323955, guid: e9df48646ffa4a34f811397a31f17a98, type: 3}
+      propertyPath: timerUI
+      value: 
+      objectReference: {fileID: 444545886}
     - target: {fileID: 3999873159335323955, guid: e9df48646ffa4a34f811397a31f17a98, type: 3}
       propertyPath: gameOverCanvas
       value: 
