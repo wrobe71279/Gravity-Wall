@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            gameObject.GetComponent<AudioSource>().Play();
             StartCoroutine(PolaritySwitch());
         }
 
