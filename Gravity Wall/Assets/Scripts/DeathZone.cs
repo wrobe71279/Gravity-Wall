@@ -5,10 +5,11 @@ using UnityEngine;
 public class DeathZone : MonoBehaviour
 {
     public Transform gameOverCanvas;
+    public Transform timerUI;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Time.timeScale = 0;
         gameOverCanvas.gameObject.SetActive(true);
+        timerUI.gameObject.SetActive(false);
     }
 }

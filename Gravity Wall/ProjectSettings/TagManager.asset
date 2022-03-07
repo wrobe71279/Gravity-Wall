@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Checkpoint
   - Obstacle
+  - Laser
   layers:
   - Default
   - TransparentFX

@@ -5,10 +5,11 @@ using UnityEngine;
 public class SawScript : MonoBehaviour
 {
     public Transform gameOverCanvas;
+    public Transform timerUI;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Time.timeScale = 0;
         gameOverCanvas.gameObject.SetActive(true);
+        timerUI.gameObject.SetActive(false);
     }
 }
