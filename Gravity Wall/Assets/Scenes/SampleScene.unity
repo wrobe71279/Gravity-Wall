@@ -1623,6 +1623,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3999873159335323955, guid: e9df48646ffa4a34f811397a31f17a98, type: 3}
+      propertyPath: timerUI
+      value: 
+      objectReference: {fileID: 444545886}
+    - target: {fileID: 3999873159335323955, guid: e9df48646ffa4a34f811397a31f17a98, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1015468271}
@@ -20009,6 +20013,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7560482868967291362, guid: 2ddcbc3aebd7d8b4cb9b0c9fc71a3936, type: 3}
+      propertyPath: timerUI
+      value: 
+      objectReference: {fileID: 444545886}
     - target: {fileID: 7560482868967291362, guid: 2ddcbc3aebd7d8b4cb9b0c9fc71a3936, type: 3}
       propertyPath: gameOverCanvas
       value: 

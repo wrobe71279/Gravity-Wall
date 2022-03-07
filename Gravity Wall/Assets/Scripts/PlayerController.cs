@@ -111,16 +111,6 @@ public class PlayerController : MonoBehaviour
         transform.localScale = temp;
     }
 
-    IEnumerator PolaritySwitch()
-    {
-        Jump();
-
-        yield return new WaitForSecondsRealtime(0.1f);
-
-        Swap();
-
-    }
-
     private void AnimationStates()
     {
         //running or idle
@@ -145,22 +135,46 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if(collision.gameObject.CompareTag("Obstacle"))
-    //    {
-    //        anim.SetBool("isDead", true);
-    //    }
-            
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            StartCoroutine(DeathSequence());
 
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Laser"))
-    //    {
-    //        anim.SetBool("isDead", true);
-    //    }
+        }
 
-    //}
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Laser"))
+        {
+            StartCoroutine(DeathSequence());
+
+        }
+
+    }
+
+    IEnumerator PolaritySwitch()
+    {
+        Jump();
+
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        Swap();
+
+    }
+
+    IEnumerator DeathSequence()
+    {
+        anim.SetTrigger("isDead");
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        gameObject.SetActive(false);
+
+    }
+
 
 }
