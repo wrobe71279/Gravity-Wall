@@ -9,7 +9,10 @@ public class SawScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameOverCanvas.gameObject.SetActive(true);
-        timerUI.gameObject.SetActive(false);
+        if(collision.CompareTag("Player"))
+        {
+            gameOverCanvas.gameObject.SetActive(true);
+            timerUI.gameObject.SetActive(false);
+        }
     }
 }
