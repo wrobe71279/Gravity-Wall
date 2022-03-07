@@ -4502,7 +4502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f212237cb64af744f807db8ada6c692c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 20
+  startTime: 30
   currentTime: 0
   timerText: {fileID: 1154418360}
   gameOverCanvas: {fileID: 1015468271}
@@ -5000,6 +5000,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1983889261}
+    - target: {fileID: 2182186349285723480, guid: 211a1c1d88caedd4b8314667aadb2620, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadLevel3
+      objectReference: {fileID: 0}
     - target: {fileID: 2772360858944695306, guid: 211a1c1d88caedd4b8314667aadb2620, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5204,6 +5208,10 @@ PrefabInstance:
     - target: {fileID: 7245908515676976879, guid: e30695a9f7a818f4aada3826631485ed, type: 3}
       propertyPath: m_Name
       value: WinUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245908515676976879, guid: e30695a9f7a818f4aada3826631485ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7245908516516279058, guid: e30695a9f7a818f4aada3826631485ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
