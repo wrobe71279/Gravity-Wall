@@ -17,6 +17,7 @@ public class Timer : MonoBehaviour
 
     //game over canvas
     public Transform gameOverCanvas;
+
     void Awake()
     {
         currentTime = startTime;
