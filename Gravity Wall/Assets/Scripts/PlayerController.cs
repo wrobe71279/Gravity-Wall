@@ -18,9 +18,17 @@ public class PlayerController : MonoBehaviour
     private bool facingRight = true;
 
     private Animator anim;
-    private enum MovementState { idle, running, jumping, falling}
-
     private Rigidbody2D rb;
+
+    [SerializeField]
+    private AudioSource jumpSFX;
+
+    [SerializeField]
+    private AudioSource deathSFX;
+
+    [SerializeField]
+    private AudioSource gravitySFX;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -44,6 +52,9 @@ public class PlayerController : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown("w")) && canJump == true)
         {
+
+            jumpSFX.Play();
+            
             if(polaritySwitched == false)
             {
                 rb.velocity = Vector2.up * jumpForce;                
@@ -57,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            gameObject.GetComponent<AudioSource>().Play();
+            gravitySFX.Play();
             StartCoroutine(PolaritySwitch());
         }
 
@@ -168,10 +179,11 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DeathSequence()
     {
+        deathSFX.Play();
         anim.SetTrigger("isDead");
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(1f);
 
         gameObject.SetActive(false);
 
