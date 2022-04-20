@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverCanvas: {fileID: 0}
+  timerUI: {fileID: 0}
 --- !u!1 &8362245403047175439
 GameObject:
   m_ObjectHideFlags: 0

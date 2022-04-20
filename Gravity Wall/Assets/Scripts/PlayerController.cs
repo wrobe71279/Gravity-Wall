@@ -19,21 +19,35 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
+    private BoxCollider2D col;
 
     [SerializeField]
     private AudioSource jumpSFX;
 
     [SerializeField]
+    private AudioSource dropSFX;
+
+    [SerializeField]
     private AudioSource deathSFX;
 
     [SerializeField]
-    private AudioSource gravitySFX;
+    private AudioSource laserDeathSFX;
+
+    [SerializeField]
+    private AudioSource gravityUpSFX;
+
+    [SerializeField]
+    private AudioSource gravityDownSFX;
+
+    [SerializeField]
+    private AudioSource runningSFX;
 
 
     // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         polaritySwitched = false;
     }
@@ -68,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            gravitySFX.Play();
+            //gravitySFX.Play();
             StartCoroutine(PolaritySwitch());
         }
 
@@ -107,10 +121,12 @@ public class PlayerController : MonoBehaviour
         if(polaritySwitched == false)
         {
             polaritySwitched = true;
+            gravityUpSFX.Play();
         }
         else
         {
             polaritySwitched = false;
+            gravityDownSFX.Play();
         }
 
     }
@@ -152,7 +168,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             StartCoroutine(DeathSequence());
-
+            deathSFX.Play();
         }
 
     }
@@ -162,9 +178,29 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Laser"))
         {
             StartCoroutine(DeathSequence());
-
+            laserDeathSFX.Play();
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            dropSFX.Play();
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") && rb.velocity.x != 0 && !runningSFX.isPlaying && isGrounded)
+        {
+            runningSFX.Play();
+        }
+        else if (rb.velocity.x == 0 || rb.velocity.y > 1)
+        {
+            runningSFX.Stop();
+        }
     }
 
     IEnumerator PolaritySwitch()
@@ -179,13 +215,12 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DeathSequence()
     {
-        deathSFX.Play();
         anim.SetTrigger("isDead");
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         yield return new WaitForSecondsRealtime(1f);
 
-        gameObject.SetActive(false);
+        Time.timeScale = 0;
 
     }
 
